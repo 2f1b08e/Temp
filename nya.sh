@@ -12,6 +12,18 @@
 #   4. Resize your terminal to see the magic!
 #   5. Press Ctrl+C to exit gracefully.
 
+# --- Dependency Check ---
+# The 'tput' command is essential for this script to control the terminal.
+# Let's check if it exists before we proceed.
+if ! command -v tput &> /dev/null; then
+    echo "Error: 'tput' command not found. This script needs it to work." >&2
+    echo "Please install the 'ncurses' package for your system." >&2
+    echo "e.g., on Debian/Ubuntu: sudo apt-get install ncurses-bin" >&2
+    echo "e.g., on Red Hat/CentOS/Fedora: sudo dnf install ncurses" >&2
+    exit 1
+fi
+# --- End of Check ---
+
 # Function to draw the heart. It's called on start and on window resize.
 draw_heart() {
     # Get the current terminal dimensions.
