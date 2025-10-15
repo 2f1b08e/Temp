@@ -1,4 +1,4 @@
-import turtle
+from turtle import *
 import time
 
 # A graphical version of the "nya~" heart script using Python's turtle module.
